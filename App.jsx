@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
-export default class App extends Component{
- constructor()
- {
-super()
-this.state={
-  username:"Manju",
-  count:0
+import './global.css';
+export default class App extends Component {
+constructor()
+{
+  super()
+  this.state={
+    count:0
+  }
 }
- }
- handleChange=()=>{
-  this.setState({username:"Shree"})
- }
- handlenumberChange=()=>{
-  this.setState({count:1})
- }
- render()
- {
-  return(
-    <div>
-      <h1>{this.state.username}</h1>
-      <h2>{this.state.count}</h2>
-      <button onClick={this.handleChange}>click to change</button>
-      <button onClick={this.handlenumberChange}> change the number</button>
-    </div>
-  )
- }
+handleIncrement=()=>{
+  this.setState({count:this.state.count+1})
+}
+handleDecrement=()=>{
+  this.setState({count:this.state.count-1})
+}
+handleReset=()=>{
+  this.setState({count:0})
+}
+
+  render() {
+    return (
+      <div className='MainBlock'>
+     <h1>{this.state.count}</h1>
+     <div className='btngroup'>
+        <button onClick={this.handleIncrement}>+ increment</button>
+        <button onClick={this.handleDecrement}>- decrement</button>
+        <button onClick={this.handleReset}>Reset</button>
+      </div>
+      </div>
+    )
+  }
 }
